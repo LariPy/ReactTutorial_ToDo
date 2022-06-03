@@ -13,16 +13,16 @@ function App() {
   const [todos, setTodos] = useState([])
   const todoNameRef = useRef()
 
+  //storing
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
     if (storedTodos) setTodos(storedTodos)
-  }, [])
-  //storing
+  }, [])  
 
+  //getting todos
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
   }, [todos])
-  //getting todos
 
   function toggleTodo(id) {
     const newTodos = [...todos]
